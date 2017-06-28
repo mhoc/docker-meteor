@@ -52,7 +52,7 @@ ONBUILD RUN meteor npm i --production \
 
 # Run another npm i inside there for good measure
 ONBUILD WORKDIR /build/bundle/programs/server
-ONBUILD RUN npm i --production
+ONBUILD RUN meteor npm i --production
 
 # Expose 80 and run main.js. Right now this isn't configurable, but I might 
 # add that capability in the future.
