@@ -59,4 +59,4 @@ ONBUILD RUN meteor npm i --production
 ONBUILD WORKDIR /build/bundle
 ONBUILD EXPOSE 80
 ONBUILD ENV PORT 80
-ONBUILD CMD [ "node", "main.js" ]
+ONBUILD CMD [ "meteor", "node", "main.js" ]
