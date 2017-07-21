@@ -11,7 +11,7 @@ RUN rm /bin/sh \
 # during an npm install. 
 RUN apt-get update -y \
   && apt-get upgrade -y \
-  && apt-get install -y bsdtar curl g++ make python-minimal
+  && apt-get install -y bsdtar curl g++ make python-minimal git
 
 # We have to replace `tar` with `bsdtar`, as tar has some issues 
 # inside Docker. Related to: https://github.com/coreos/bugs/issues/1095
