@@ -38,6 +38,9 @@ RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh
   && nvm use default \
   && rm -rf /node
 
+# Override the Node memory allocation limit for large projects.
+ENV TOOL_NODE_FLAGS --max-old-space-size=8192
+
 # On build commands.
 # This just saves you space in the Dockerfile you need to write for your app. 
 
