@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+MAINTAINER Mike Hockerman <mike@hockerman.com>
 
 # Replace sh with bash. This is just to make the rest 
 # of this script a little bit easier to write.
@@ -20,14 +21,14 @@ RUN rm /bin/tar \
 
 # Install Meteor
 WORKDIR /meteor
-RUN curl -sL https://install.meteor.com?release=1.5 -o install_meteor.sh \
+RUN curl -sL https://install.meteor.com?release=1.6 -o install_meteor.sh \
   && sh install_meteor.sh \
   && rm -rf /meteor
 
 # During the meteor build process, some dependencies require the node/npm 
 # binaries to be available. We install that here using nvm
 WORKDIR /node
-ENV NODE_VERSION 4.8.3
+ENV NODE_VERSION 8.8.1
 ENV NVM_DIR /usr/local/nvm
 RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh -o install_nvm.sh \
   && sh install_nvm.sh \
@@ -39,3 +40,26 @@ RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh
 
 # Override the Node memory allocation limit for large projects.
 ENV TOOL_NODE_FLAGS --max-old-space-size=8192
+
+# On build commands.
+# This just saves you space in the Dockerfile you need to write for your app. 
+
+# Copy the app into the docker container.
+ONBUILD WORKDIR /app
+ONBUILD COPY ./. .
+
+# Install npm dependencies and build the app
+ONBUILD RUN meteor npm i --production \
+  && meteor build ../build --allow-superuser --directory \
+  && rm -rf /app
+
+# Run another npm i inside there for good measure
+ONBUILD WORKDIR /build/bundle/programs/server
+ONBUILD RUN meteor npm i --production
+
+# Expose 80 and run main.js. Right now this isn't configurable, but I might 
+# add that capability in the future.
+ONBUILD WORKDIR /build/bundle
+ONBUILD EXPOSE 80
+ONBUILD ENV PORT 80
+ONBUILD CMD [ "meteor", "node", "main.js" ]

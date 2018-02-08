@@ -6,15 +6,16 @@ These dockerfiles are designed to act as the base image for a deployment which s
 
 # Tags
 
-- `1.5` (latest) 
+- `1.6` (latest)
+- `1.5`
 
 # Typical Dockerfile
 
 ```dockerfile
-FROM mikehock/meteor:1.5
+FROM mikehock/meteor:1.6
 ```
 
-That's it. The base image takes care of everything else. Specifically, it will run `meteor build` and expose the app on port `80`. Right now, none of the build process is configurable besides...
+That's it. The base image takes care of everything else. Specifically, it will run `meteor build` and expose the app on port `80`. Right now, none of the build process is configurable.
 
 # Typical Dockerignore
 
