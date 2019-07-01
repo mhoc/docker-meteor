@@ -1,4 +1,9 @@
 version: 2
+workflows:
+  build:
+    jobs:
+      - build-1.5
+      - build-1.6
 jobs:
   build-1.5:
     docker:
