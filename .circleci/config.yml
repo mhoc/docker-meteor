@@ -15,7 +15,7 @@ jobs:
       - run:
           name: build docker image
           command: |
-            docker build -t app -f Dockerfile-1.5 .
+            docker build -t app -f 1.5.dockerfile .
   build-16:
     docker:
       - image: docker:17.05.0-ce-git
@@ -25,4 +25,14 @@ jobs:
       - run:
           name: build docker image
           command: |
-            docker build -t app -f Dockerfile-1.6 .
+            docker build -t app -f 1.6.dockerfile .
+  build-17:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: build docker image
+          command: |
+            docker build -t app -f 1.7.dockerfile .
