@@ -23,4 +23,4 @@ jobs:
           context: .
           file: "{context}/${{ matrix.MeteorVersion }}.dockerfile"
           push: false
-          tags: ["docker-meteor:${{ matrix.MeteorVersion }}"]
+          tags: "docker-meteor:${{ matrix.MeteorVersion }}"
