@@ -1,4 +1,4 @@
-# [DOCKER-METEOR](https://hub.docker.com/mikehock/meteor)
+# [DOCKER-METEOR](https://hub.docker.com/r/mikehock/meteor)
 
 A simple Dockerfile for deployments of Meteor applications.
 
