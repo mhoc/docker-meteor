@@ -21,6 +21,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: "{context}/${{ matrix.MeteorVersion }}.dockerfile"
+          file: "./${{ matrix.MeteorVersion }}.dockerfile"
           push: false
           tags: "docker-meteor:${{ matrix.MeteorVersion }}"
