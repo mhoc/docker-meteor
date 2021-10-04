@@ -11,7 +11,7 @@ experience as simple as Meteor itself, with all the pros and cons associated wit
 In your `Dockerfile`:
 
 ```dockerfile
-FROM mikehock/meteor:1.8-r1
+FROM mikehock/meteor:1.9-r1
 ```
 
 And in a `.dockerignore` (if you want):
