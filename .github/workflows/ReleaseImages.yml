@@ -22,13 +22,25 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: mikehock
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Login to ghcr.io
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: mhoc
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Test Build Image
+      - name: Build & Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: "./${{ matrix.BuildVersion }}.dockerfile"
+          push: true
+          tags: mikehock/meteor:${{ matrix.BuildVersion }}
+      - name: Build & Push to ghcr.io
         uses: docker/build-push-action@v2
         with:
           context: .
