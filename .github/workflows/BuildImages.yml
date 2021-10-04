@@ -1,17 +1,16 @@
-name: Build
-on: [push, pull_request]
+name: ReleaseImages
+on: [pull_request]
 jobs:
-  Build:
-    name: Build
+  Run:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        MeteorVersion:
-          - "1.5"
-          - "1.6"
-          - "1.7"
-          - "1.8"
-          - "1.9"
+        BuildVersion:
+          - "1.5-r1"
+          - "1.6-r1"
+          - "1.7-r3"
+          - "1.8-r1"
+          - "1.9-r1"
     steps:
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v1
@@ -23,6 +22,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: "./${{ matrix.MeteorVersion }}.dockerfile"
+          file: "./${{ matrix.BuildVersion }}.dockerfile"
           push: false
-          tags: "docker-meteor:${{ matrix.MeteorVersion }}"
+          tags: ghcr.io/mhoc/docker-meteor:${{ matrix.BuildVersion }}

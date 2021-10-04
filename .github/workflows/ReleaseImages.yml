@@ -1,0 +1,30 @@
+name: ReleaseImages
+on: 
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  Run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        BuildVersion:
+          - "1.5-r1"
+          - "1.6-r1"
+          - "1.7-r3"
+          - "1.8-r1"
+          - "1.9-r1"
+    steps:
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test Build Image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: "./${{ matrix.BuildVersion }}.dockerfile"
+          tags: ghcr.io/mhoc/docker-meteor:${{ matrix.BuildVersion }}

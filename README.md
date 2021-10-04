@@ -1,4 +1,4 @@
-# [DOCKER-METEOR](https://hub.docker.com/r/mikehock/meteor)
+# [Docker-Meteor](https://hub.docker.com/r/mikehock/meteor)
 
 A simple Dockerfile for deployments of Meteor applications.
 
@@ -25,15 +25,17 @@ node_modules
 That's it. The base image takes care of everything else. Specifically, it will run `meteor build` 
 and expose the app on port `80`. Right now, none of the build process is configurable.
 
-## Stable Images
+## Images
 
-All images are available on Docker Hub.
+All images are available on both Docker Hub and Github Container Registry.
 
-- `mikehock/meteor:1.9-r1`
-- `mikehock/meteor:1.8-r1`
-- `mikehock/meteor:1.7-r3`
-- `mikehock/meteor:1.6`
-- `mikehock/meteor:1.5`
+| Tag (Docker Hub)         | Tag (ghcr)                          | Meteor | Ubuntu |
+|--------------------------|-------------------------------------|--------|--------|
+| `mikehock/meteor:1.9-r1` | `ghcr.io/mhoc/docker-meteor:1.9-r1` | 1.9.3  | 16.04  |
+| `mikehock/meteor:1.8-r1` | `ghcr.io/mhoc/docker-meteor:1.8-r1` | 1.8.3  | 16.04  |
+| `mikehock/meteor:1.7-r3` | `ghcr.io/mhoc/docker-meteor:1.7-r3` | 1.7.x  | 16.04  |
+| `mikehock/meteor:1.6`    | `ghcr.io/mhoc/docker-meteor:1.6-r1` | 1.6.x  | 20.04  |
+| `mikehock/meteor:1.5`    | `ghcr.io/mhoc/docker-meteor:1.5-r1` | 1.5.x  | 20.04  |
 
 ## FAQ
 
