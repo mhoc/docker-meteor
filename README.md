@@ -1,5 +1,8 @@
 # [Docker-Meteor](https://hub.docker.com/r/mikehock/meteor)
 
+[![DockerHub](https://img.shields.io/badge/DockerHub-1.9--r1-blue?logo=docker)](https://hub.docker.com/r/mikehock/meteor)
+[![GHCR](https://img.shields.io/badge/GHCR-1.9--r1-black?logo=github)](https://github.com/mhoc/docker-meteor/pkgs/container/docker-meteor)
+
 A simple Dockerfile for deployments of Meteor applications.
 
 These dockerfiles are designed to act as the base image for a Meteor application. It uses `ONBUILD`
