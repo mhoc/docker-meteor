@@ -27,4 +27,5 @@ jobs:
         with:
           context: .
           file: "./${{ matrix.BuildVersion }}.dockerfile"
+          push: true
           tags: ghcr.io/mhoc/docker-meteor:${{ matrix.BuildVersion }}
