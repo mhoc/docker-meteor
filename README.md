@@ -1,4 +1,4 @@
-# [DOCKER-METEOR](https://hub.docker.com/mikehock/meteor)
+# [DOCKER-METEOR](https://hub.docker.com/r/mikehock/meteor)
 
 A simple Dockerfile for deployments of Meteor applications.
 
@@ -25,7 +25,7 @@ node_modules
 That's it. The base image takes care of everything else. Specifically, it will run `meteor build` 
 and expose the app on port `80`. Right now, none of the build process is configurable.
 
-## Images
+## Stable Images
 
 All images are available on Docker Hub.
 
@@ -51,6 +51,6 @@ There's no way for me to answer that. Your path through life is your own to forg
 
 No one can predict the future, and anyone who says they can is selling you something.
 
-> The final image is 1.21gb. That seems kinda large.
+> The base image is 1.21gb. That seems kinda large.
 
 That's not a question.
