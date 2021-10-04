@@ -29,6 +29,7 @@ and expose the app on port `80`. Right now, none of the build process is configu
 
 All images are available on Docker Hub.
 
+- `mikehock/meteor:1.9-r1`
 - `mikehock/meteor:1.8-r1`
 - `mikehock/meteor:1.7-r3`
 - `mikehock/meteor:1.6`
@@ -38,17 +39,13 @@ All images are available on Docker Hub.
 
 In a hypothetical alternate universe, this project may receive questions like:
 
-> Wait, the latest version of meteor you support is 1.8? Wasn't that released in 2019?
+> Wait, the latest version of meteor you support is 1.9? Aren't there more recent versions?
 
 Yes, and Yes.
 
 > Does that mean I should use this?
 
 There's no way for me to answer that. Your path through life is your own to forge.
-
-> Aren't there open security vulnerabilities for Meteor 1.8, Node 8.17, or other associated dependencies?
-
-Almost definitely.
 
 > Is there any intention to add support for future versions?
 
